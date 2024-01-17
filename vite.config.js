@@ -1,4 +1,5 @@
 export default {
+    root: './src/',
     build: {
         rollupOptions: {
             input: {
