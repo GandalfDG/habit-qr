@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit QR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div id="app">
+
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <h1 class="title has-text-white">Habit QR</h1>
+                <a role="button" class="navbar-burger">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- form for task creation -->
+        <form>
+            <div class="field">
+                <label class="label">Task Location</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Control Room">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary">Generate QR Code</button>
+                </div>
+            </div>
+        </form>
+
+        <sl-qr-code value="peepeepoopoo" error-correction="H"></sl-qr-code>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/qr-code/qr-code.js"></script>
+</body>
+
+</html>
