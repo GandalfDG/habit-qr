@@ -3,8 +3,8 @@ export default {
     build: {
         rollupOptions: {
             input: {
-                index: 'index.html',
-                add: 'add_task.html'
+                index: 'src/index.html',
+                add: 'src/add_task.html'
             }
         }
     }

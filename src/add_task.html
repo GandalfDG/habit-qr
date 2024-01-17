@@ -11,17 +11,7 @@
 
 <body>
     <div id="app">
-
-        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <h1 class="title has-text-white">Habit QR</h1>
-                <a role="button" class="navbar-burger">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-        </nav>
+        <site-header></site-header>
 
         <!-- form for task creation -->
         <form>
@@ -37,12 +27,14 @@
                 </div>
             </div>
         </form>
-
-        <sl-qr-code value="peepeepoopoo" error-correction="H"></sl-qr-code>
+            <p>Post this QR code at your task location</p>
+            <sl-qr-code value="https://podcast.tworooms.online/?uuid=asdfjlsdkfs"></sl-qr-code>
     </div>
     <script type="module" src="/main.js"></script>
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/qr-code/qr-code.js"></script>
+
+
 </body>
 
 </html>
