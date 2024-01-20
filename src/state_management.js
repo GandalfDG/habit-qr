@@ -1,23 +1,22 @@
-const task_db = window.indexedDB.open("TaskDB", 3)
+export class TaskDB {
+    constructor(version_number) {
+        const db_request = window.indexedDB.open("TaskDB", version_number)
 
-task_db.onerror = (event) => {
+        db_request.onupgradeneeded = (event) => {
+            this.db = event.target.result
+            const object_store = this.db.createObjectStore("TaskLocations", {keyPath: "location_name"})
+            object_store.oncomplete = (event) => {
+                return
+            }
+        }
+    }
 
-}
-
-task_db.onsuccess = (event) => {
-
-}
-
-const taskData = [
-    {task_location: "timbuktu"},
-    {task_location: "your mom's house"}
-]
-
-task_db.onupgradeneeded = (event) => {
-    const db = event.target.result
-    const task_objectstore = db.createObjectStore("tasks", {keyPath: "task_location"})
-
-    task_objectstore.transaction.oncomplete = (event) => {
-        const taskObjectStore = db.transaction
+    create_location(location_object) {
+        const transaction = this.db.transaction("TaskLocations", "readwrite")
+        const object_store = transaction.objectStore("TaskLocations")
+        const request = object_store.add(location_object)
+        request.onsuccess = (event) => {
+            return
+        }
     }
 }
