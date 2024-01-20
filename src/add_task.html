@@ -8,6 +8,8 @@
     <title>Habit QR</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script type="module" src="state_management.js"></script>
+    <script type="module" src="add_task.js"></script>
+
 </head>
 
 <body>
@@ -19,17 +21,16 @@
             <div class="field">
                 <label class="label">Task Location</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Control Room">
+                    <input class="input" type="text" id="task-location-name-input" placeholder="Control Room">
                 </div>
             </div>
             <div class="field">
                 <div class="control">
-                    <button class="button is-primary" id="create-task-location-button">Generate QR Code</button>
+                    <button class="button is-primary" type="button" id="create-task-location-button">Generate QR Code</button>
                 </div>
             </div>
         </form>
-            <p>Post this QR code at your task location</p>
-            <sl-qr-code value="https://podcast.tworooms.online/?uuid=asdfjlsdkfs"></sl-qr-code>
+
     </div>
     <script type="module" src="/main.js"></script>
     <script type="module"

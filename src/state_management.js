@@ -9,6 +9,10 @@ export class TaskDB {
                 return
             }
         }
+
+        db_request.onsuccess = (event) => {
+            this.db = event.target.result
+        }
     }
 
     create_location(location_object) {
@@ -17,6 +21,15 @@ export class TaskDB {
         const request = object_store.add(location_object)
         request.onsuccess = (event) => {
             return
+        }
+    }
+
+    retrieve_location(location_name) {
+        const transaction = this.db.transaction("TaskLocations", "readonly")
+        const object_store = transaction.objectStore("TaskLocations")
+        const request = object_store.get(location_name)
+        request.onsuccess = (event) => {
+            return request.result
         }
     }
 }

@@ -1,5 +1,6 @@
 export default {
     root: './src/',
+    base: 'https://gandalfdg.github.io/habit-qr/',
     build: {
         outDir: '../dist',
         rollupOptions: {
