@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script type="module" src="task_detail.js"></script>
     <script type="module"
-            src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/qr-code/qr-code.js"></script>
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/qr-code/qr-code.js"></script>
 </head>
 
 <body>
@@ -17,8 +17,68 @@
 
         <site-header></site-header>
 
-        <p>Post this QR code at your task location</p>
-        <sl-qr-code value="" error-correction="M" id="qr-code"></sl-qr-code>
+        <task-list></task-list>
+
+        <button class="button is-primary" type="button" id="create-task-button">Create Task</button>
+
+        <!-- modal to display task creation form
+            - task name
+            - add task step
+                - timed?
+                    - default duration -->
+        <div class="modal" id="task-modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <form>
+                        <div class="block">
+                            <h1 class="title">New Task</h1>
+                            <div class="field">
+                                <label class="label">Task Name</label>
+                                <div class="control">
+                                    <input class="input" type="text" id="task-name-input"
+                                        placeholder="Reticulate Splines">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="block">
+                            <h4 class="title is-4">Steps</h2>
+                            <!-- <div class="field">
+                                <div class="control" id="step-list">
+                                    <input class="input is-static" value="" readonly>
+                                </div>
+                            </div> -->
+                            <div class="field">
+                                <label class="label">Step Name</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="step name">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Step Duration in Minutes (Optional)</label>
+                                <div class="control">
+                                    <input class="input" type="number" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="control">
+                                <button class="button is-primary" type="button" id="create-task-step-button">Add
+                                    Step</button>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary" type="button" id="save-task-button">Save Task</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>Post this QR code at your task location</p>
+    <sl-qr-code value="" error-correction="M" id="qr-code"></sl-qr-code>
 
     </div>
     <script type="module" src="/main.js"></script>
