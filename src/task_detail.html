@@ -8,6 +8,7 @@
     <title>Habit QR</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script type="module" src="task_detail.js"></script>
+    <script type="module" src="components/task_step.js"></script>
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/qr-code/qr-code.js"></script>
 </head>
@@ -44,21 +45,19 @@
                         <hr>
                         <div class="block">
                             <h4 class="title is-4">Steps</h2>
-                            <!-- <div class="field">
-                                <div class="control" id="step-list">
-                                    <input class="input is-static" value="" readonly>
-                                </div>
-                            </div> -->
+                            <ul id="step-list">
+
+                            </ul>
                             <div class="field">
                                 <label class="label">Step Name</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="step name">
+                                    <input class="input" type="text" placeholder="step name" id="step-name-field">
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Step Duration in Minutes (Optional)</label>
                                 <div class="control">
-                                    <input class="input" type="number" placeholder="0">
+                                    <input class="input" type="number" placeholder="0" id="step-duration-field">
                                 </div>
                             </div>
                             <div class="control">
