@@ -1,3 +1,5 @@
+import Dexie from 'dexie'
+
 export class TaskDB {
     constructor(version_number) {
         const db_request = window.indexedDB.open("TaskDB", version_number)
