@@ -1,7 +1,7 @@
 export class TaskLocation {
     constructor(location_name, tasks) {
         this.location_name = location_name
-        this.tasks = tasks
+        this.tasks = tasks ? tasks : new Array()
     }
 
     generate_task_location_url() {

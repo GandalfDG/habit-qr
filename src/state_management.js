@@ -31,5 +31,15 @@ export class TaskDB {
         request.onsuccess = (event) => {
             return request.result
         }
+        request
+    }
+
+    update_location(location_object) {
+        const transaction = this.db.transaction("TaskLocations", "readwrite")
+        const object_store = transaction.objectStore("TaskLocations")
+        const request = object_store.put(location_object)
+        request.onsuccess = (event) => {
+            return
+        }
     }
 }
