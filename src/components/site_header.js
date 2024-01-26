@@ -7,5 +7,6 @@ export class SiteHeader extends HTMLElement {
         template.innerHTML = site_header_template
         const shadowRoot = this.attachShadow({mode: "open"})
         shadowRoot.appendChild(template.content)
+        shadowRoot.querySelector('#site-title-link').setAttribute('href', import.meta.env.BASE_URL)
     }
 }
