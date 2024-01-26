@@ -32,15 +32,15 @@ function reset_create_form() {
     })
 }
 
-save_task_button.onclick = () => {
+save_task_button.onclick = async () => {
     const task_name = document.getElementById('task-name-input').value
     new_task = new Task(task_name, task_steps)
     console.log(new_task)
 
     // get the task location object and append this task object to the tasks key
-    let location_obj = task_db.retrieve_location(task_location_name)
+    let location_obj = await task_db.retrieve_location(task_location_name)
     location_obj.tasks.push(new_task)
-    task_db.update_location(new_task)
+    task_db.update_location(location_obj)
 
     task_modal.classList.remove('is-active')
     reset_create_form()
