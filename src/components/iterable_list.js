@@ -1,7 +1,12 @@
 export class IterableListComponent extends HTMLElement {
-    constructor(list) {
+    constructor(list, customizations) {
         super()
         this.list = list
+        this.customizations = customizations ? customizations : null
+    }
+
+    set_customizations(customizations) {
+        this.customizations = customizations
     }
 
     connectedCallback() {
@@ -25,7 +30,7 @@ export class IterableListComponent extends HTMLElement {
         list.forEach((element) => this.create_list_item_node(element))
     }
 
-    create_list_item_node(item) {
+    create_list_item_node(item, customizations) {
         const item_node = this.template.cloneNode(true)
         const li_element =  document.createElement('li')
         for (const key of Object.keys(item)) {
@@ -35,6 +40,9 @@ export class IterableListComponent extends HTMLElement {
             }
         }
         li_element.appendChild(item_node)
+        if(this.customizations) {
+            this.customizations(li_element, item)
+        }
         this.list_container.appendChild(li_element)
     }
 }

@@ -17,5 +17,9 @@ export class TaskDB {
     async update_location(location_object) {
         await this.db.TaskLocations.put(location_object)
     }
+
+    async get_all_locations() {
+        return await this.db.TaskLocations.toArray()
+    }
 }
 
