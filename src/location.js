@@ -1,5 +1,5 @@
 import { Task, Step } from './tasks.js'
-import {task_db} from './main.js'
+import { task_db } from './main.js'
 
 const qr_code = document.getElementById('qr-code')
 const create_task_button = document.getElementById('create-task-button')
@@ -45,7 +45,7 @@ save_task_button.onclick = async () => {
     task_modal.classList.remove('is-active')
     reset_create_form()
 }
- 
+
 add_step_button.onclick = () => {
     const step_name = document.getElementById('step-name-field').value
     const step_duration = document.getElementById('step-duration-field').value
@@ -56,3 +56,16 @@ add_step_button.onclick = () => {
 }
 
 qr_code.setAttribute('value', window.location)
+
+const task_list = document.querySelector('iterable-list')
+task_list.set_customizations((li_element, item) => {
+    const task_object = new Task
+    Object.assign(task_object, item)
+    const link_element = li_element.querySelector('a')
+    link_element.setAttribute('href', `${task_object.generate_url()}`)
+})
+
+let promise = task_db.retrieve_location(task_location_name)
+promise.then((result) => {
+    task_list.update_list(result.tasks)
+})

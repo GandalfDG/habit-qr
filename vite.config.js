@@ -7,7 +7,7 @@ export default {
             input: {
                 index: 'src/index.html',
                 add: 'src/add_task.html',
-                task_detail: 'src/task_detail.html'
+                location: 'src/location.html'
             }
         }
     }

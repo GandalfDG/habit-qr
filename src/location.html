@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habit QR</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script type="module" src="task_detail.js"></script>
+    <script type="module" src="location.js"></script>
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/qr-code/qr-code.js"></script>
 </head>
@@ -17,7 +17,14 @@
 
         <site-header></site-header>
 
-        <task-list></task-list>
+        <iterable-list>
+            <template>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+                <a>
+                    <p data-key="name"></p>
+                </a>
+            </template>
+        </iterable-list>
 
         <button class="button is-primary" type="button" id="create-task-button">Create Task</button>
 
@@ -80,7 +87,7 @@
     </div>
 
     <p>Post this QR code at your task location</p>
-    <sl-qr-code value="" error-correction="M" id="qr-code"></sl-qr-code>
+    <sl-qr-code value="" error-correction="L" id="qr-code"></sl-qr-code>
 
     </div>
     <script type="module" src="/main.js"></script>
