@@ -44,6 +44,7 @@ save_task_button.onclick = async () => {
 
     task_modal.classList.remove('is-active')
     reset_create_form()
+    update_list()
 }
 
 add_step_button.onclick = () => {
@@ -65,7 +66,11 @@ task_list.set_customizations((li_element, item) => {
     link_element.setAttribute('href', `${task_object.generate_url()}`)
 })
 
-let promise = task_db.retrieve_location(task_location_name)
-promise.then((result) => {
-    task_list.update_list(result.tasks)
-})
+function update_list() {
+    let promise = task_db.retrieve_location(task_location_name)
+    promise.then((result) => {
+        task_list.update_list(result.tasks)
+    })
+}
+
+update_list()
