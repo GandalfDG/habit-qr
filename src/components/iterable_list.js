@@ -27,7 +27,9 @@ export class IterableListComponent extends HTMLElement {
 
     update_list(list) {
         this.initialize_list()
-        list.forEach((element) => this.create_list_item_node(element))
+        if (list) {
+            list.forEach((element) => this.create_list_item_node(element))
+        }
     }
 
     create_list_item_node(item, customizations) {
