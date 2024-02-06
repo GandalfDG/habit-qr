@@ -3,7 +3,6 @@ const base_url = import.meta.env.BASE_URL
 export class TaskLocation {
     constructor(location_name, tasks) {
         this.location_name = location_name
-        this.tasks = tasks ? tasks : new Array()
     }
 
     generate_url() {

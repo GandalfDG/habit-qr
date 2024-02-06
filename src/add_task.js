@@ -10,7 +10,8 @@ add_task_button.onclick = () => {
     console.log(task_location_name)
     const location_object = new TaskLocation(task_location_name, null)
     console.log(location_object)
-    task_db.create_location(location_object)
-
-    window.location.replace(location_object.generate_url())
+    let promise = task_db.create_location(location_object)
+    promise.then(() => {
+        window.location.replace(location_object.generate_url())
+    })
 }

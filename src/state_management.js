@@ -23,8 +23,23 @@ export class TaskDB {
         return await this.db.TaskLocations.toArray()
     }
 
+    async create_task(task_object, location_id) {
+        task_object.location_id = location_id
+        await this.db.Tasks.put(task_object)
+    }
+
     async get_task(task_id) {
         return await this.db.Tasks.get(task_id)
+    }
+
+    async get_tasks_by_location(location_name) {
+        const location = await this.retrieve_location(location_name)
+        if(location.id) {
+            return await this.db.Tasks.where('location_id').equals(location.id).toArray()
+        }
+        else {
+            return null
+        }
     }
 }
 

@@ -37,10 +37,10 @@ save_task_button.onclick = async () => {
     new_task = new Task(task_name, task_steps)
     console.log(new_task)
 
+    
     // get the task location object and append this task object to the tasks key
     let location_obj = await task_db.retrieve_location(task_location_name)
-    location_obj.tasks.push(new_task)
-    task_db.update_location(location_obj)
+    task_db.create_task(new_task, location_obj.id)
 
     task_modal.classList.remove('is-active')
     reset_create_form()
@@ -67,9 +67,9 @@ task_list.set_customizations((li_element, item) => {
 })
 
 function update_list() {
-    let promise = task_db.retrieve_location(task_location_name)
+    let promise = task_db.get_tasks_by_location(task_location_name)
     promise.then((result) => {
-        task_list.update_list(result.tasks)
+        task_list.update_list(result)
     })
 }
 
